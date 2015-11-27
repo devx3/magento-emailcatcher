@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Agencia01_EmailCatcher>
+            <version>0.0.1</version>
+        </Agencia01_EmailCatcher>
+    </modules>
+    
+    <global>
+        <blocks>
+            <agencia01_emailcatcher>
+                <class>Agencia01_EmailCatcher_Block</class>
+            </agencia01_emailcatcher>
+        </blocks>
+        <helpers>
+            <agencia01_emailcatcher>
+                <class>Agencia01_EmailCatcher_Helper</class>
+            </agencia01_emailcatcher>
+        </helpers>
+        
+        <models>
+            <agencia01_emailcatcher>
+                <class>Agencia01_EmailCatcher_Model</class>
+            </agencia01_emailcatcher>
+        </models>
+    </global>
+</config>
