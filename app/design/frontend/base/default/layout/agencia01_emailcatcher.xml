@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<layout version="0.1.0">
+    <agencia01_emailcatcher_email_index>
+
+		<reference name="root">
+			<action method="unsetChild"><name>right</name></action>
+		</reference>
+
+        <reference name="content">
+            <block type="core/template" name="emailcatcher_email_index" template="agencia01/emailcatcher/email.phtml"></block>
+        </reference>
+    </agencia01_emailcatcher_email_index>
+</layout>

@@ -1,0 +1,124 @@
+<style type="text/css">
+
+.cadastrar{
+    width:96% !important;
+    text-align:center !important;
+    margin:20px auto !important;
+    max-width:500px !important;
+    display:block !important; 
+    }
+    
+.cadastrar form{ width:100% !important; height:40px; text-align:center !important; margin:auto !important;  display:block !important; position:relative; }
+.cadastrar form input.email,
+.cadastrar form input.nome{
+    width:100% !important;
+
+    height:40px !important;
+    border-radius:5px !important;
+    -moz-border-radius:5px !important;
+    -webkit-border-radius:5px !important;
+    text-align:left !important;
+    margin:0px;
+    padding:0 140px 0 10px;
+    border:none !important;
+    box-shadow:1px 1px 3px rgba(0,0,0,0.6)  inset!important;
+    -moz-box-shadow:1px 1px 3px rgba(0,0,0,0.6) inset !important;
+    -webkit-box-shadow:1px 1px 3px rgba(0,0,0,0.6) inset !important;    
+    
+    float:left; 
+    font-family: 'Roboto', sans-serif; font-size:20px; line-height:40px;
+    }
+.cadastrar form input.email{    margin-top:20px; }
+.cadastrar form .btEnviar{
+    height:40px; line-height:40px;
+    color:white; background:#06F;
+    border-radius:0 5px 5px 0px !important;
+    -moz-border-radius:0 5px 5px 0px !important;
+    -webkit-border-radius:0 5px 5px 0px !important;
+    
+    border:none;
+    
+    padding:0 10px;
+    
+    width:auto;
+    float:right;
+    position:absolute;
+    z-index:500;
+    right:0px;
+    margin-top:60px;
+}
+
+
+.cadastrar form .btEnviar span{font-size: 15px;  line-height: 40px;    margin: 0 0 0 10px;}
+</style>
+
+
+<script type="text/javascript">
+
+function setCookie(cname, cvalue, exdays, cmail, mailvalue) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+    document.cookie = cmail + "=" + mailvalue + "; " + expires;
+
+}
+
+function getCookie(cname, cmail) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+    
+    
+    var mail = cmail + "=";
+    var cm = document.cookie.split(';');
+    for(var i=0; i<cm.length; i++) {
+        var e = cm[i];
+        while (e.charAt(0)==' ') e = e.substring(1);
+        if (e.indexOf(mail) == 0) return e.substring(mail.length, e.length);
+    }
+    return "";
+    
+}
+
+function checkCookie() {
+    
+        var valorNome = document.getElementsByClassName('nome')[0].value;
+        var valorEmail = document.getElementsByClassName('email')[0].value;
+
+        user = valorNome;
+        vmail = valorEmail;     
+        
+
+        if (user != "" && user != null && vmail != "" && vmail != null) {
+            setCookie("name", user, 365);
+            setCookie("email", vmail, 365);
+        }
+}
+    
+    
+
+
+function validar(){
+    if(document.getElementsByClassName('email')[0].checkValidity()) {
+    checkCookie();
+    }
+}
+
+
+window.onload = checkCookie();  
+
+</script>
+
+<div class="cadastrar">
+<form>
+<input class="nome" type="text" value="" title="insira seu nome" placeholder="nome:" required="required" />
+<input class="email" type="email" value="" title="insira um formado de e-mail válido. Ex.: nome@dominio.com.br" placeholder="email:" required="required" />
+<button class="btEnviar"  value="cadastrar" onclick="validar()">CADASTRAR &nbsp;<span class="fa fa-envelope-o"></span></button>
+</form>
+</div>

@@ -23,5 +23,33 @@
                 <class>Agencia01_EmailCatcher_Model</class>
             </agencia01_emailcatcher>
         </models>
+        <events>
+           <controller_action_predispatch_onestepcheckout_index_index>
+            <observers>
+                <agencia01_emailcatcher>
+                   <class>Agencia01_EmailCatcher_Model_Observer</class>
+                   <method>display_email_catcher</method>
+                </agencia01_emailcatcher>
+            </observers>
+           </controller_action_predispatch_onestepcheckout_index_index>
+        </events>
     </global>
+    <frontend>
+        <routers>
+            <agencia01_emailcatcher>
+                <use>standard</use>
+                <args>
+                    <module>Agencia01_EmailCatcher</module>
+                    <frontName>emailcatcher</frontName>
+                </args>
+            </agencia01_emailcatcher>
+        </routers>
+        <layout>
+            <updates>
+                <agencia01_emailcatcher>
+                    <file>agencia01_emailcatcher.xml</file>
+                </agencia01_emailcatcher>
+            </updates>
+        </layout>
+    </frontend>
 </config>
